@@ -28,16 +28,15 @@ myFunction();
     
 For example, `summation(4)` should return 10 because 1+2+3+4 is 10. Note, you may use a for loop for this function if you wish */
 
-function summation(number) {
-  let counter = 0
-  for (let i=0; i<=number; i++){
-  counter = i + counter;
-}
+function summation(num) {
+  let counter = num
+  while (num > 0){
+    num--
+    counter += num
+  }
 return counter
 }
  console.log('Task 2', summation(4))
-
-  //      Try again later, keep moving
 
 
 // 🦁🦁🦁 Topic 2: ADVANCED Array Methods 🦁🦁🦁
@@ -168,14 +167,11 @@ function greeting(firstName, lastName){
 */
 
 
-function CuboidMaker(dimensions){
-this.length = dimensions.length
-this.width = dimensions.width
-this.height = dimensions.height
+function CuboidMaker({length, width, height}){
+this.length = length
+this.width = width
+this.height = height
 }
-
-
-
 
 
 /* 🐴🐴🐴 Step 2: Volume Method 🐴🐴🐴
@@ -205,9 +201,8 @@ CuboidMaker.prototype.surfaceArea = function(){
   Add properties and values of length: 4, width: 5, and height: 5 to cuboid. */
 
 
-const cuboid = new CuboidMaker({length: 4,width: 5,height: 5})
+const cuboid = new CuboidMaker({length: 4, width: 5, height: 5})
 
-console.log('IGSISHDG',cuboid.surfaceArea())
 
 // 🐴🐴🐴 Test your volume and surfaceArea methods by uncommenting the logs below: 🐴🐴🐴
 // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
@@ -222,10 +217,10 @@ console.log(cuboid.surfaceArea()); // 130
 
 
 class CuboidMakerTwo{
-constructor(dimensions){
-  this.length = dimensions.length
-  this.width = dimensions.width
-  this.height = dimensions.height
+constructor({length, width, height}){
+  this.length = length
+  this.width = width
+  this.height = height
   }
   volume(){
     const volume = this.length * this.width * this.height;
@@ -236,11 +231,11 @@ constructor(dimensions){
     return surfaceArea
 }
 }
-
+const cuboidTwo = new CuboidMakerTwo({length: 4, width: 5, height: 5})
 
 //🦄🦄🦄 Test your volume and surfaceArea methods by uncommenting the logs below: 🦄🦄🦄
-// console.log(cuboidTwo.volume()); // 100
-// console.log(cuboidTwo.surfaceArea()); // 130
+console.log(cuboidTwo.volume()); // 100
+console.log(cuboidTwo.surfaceArea()); // 130
 
 
 
